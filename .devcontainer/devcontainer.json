@@ -1,0 +1,12 @@
+{
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "flaskappi",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "forwardPorts": [8888, 5000],
+    "customizations": {
+        "extensions": ["ms-python.python", "ms-toolsai.jupyter"],
+        "settings": {
+            "python.defaultInterpreterPath": "/opt/conda/bin/python"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+version: '3.8'
+
+networks:
+  inswitch_network:
+    name: inswitch_network
+
+services:
+  flaskappi:
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ../..:/workspaces:cached  # Montre le dossier parent sur le conteneur
+    networks: 
+      - inswitch_network
+    command: sleep infinity  # Le conteneur attendra ici jusqu'à ce qu'on le lance manuellement
+
+  graphdb:
+    container_name: graphdb
+    image: ontotext/graphdb:10.6.4
+    ports:
+      - 7200:7200  # GraphDB interface (SPARQL endpoint)
+    networks: 
+      - inswitch_network
+    volumes:
+      - graphdb-data:/opt/graphdb/home  # Volume pour stocker les données GraphDB
+
+volumes:
+  graphdb-data:
