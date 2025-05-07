@@ -10,20 +10,20 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
-      - ../..:/workspaces:cached  # Montre le dossier parent sur le conteneur
+      - ../..:/workspaces:cached
     networks: 
       - inswitch_network
-    command: sleep infinity  # Le conteneur attendra ici jusqu'à ce qu'on le lance manuellement
+    command: sleep infinity
 
   graphdb:
     container_name: graphdb
     image: ontotext/graphdb:10.6.4
     ports:
-      - 7200:7200  # GraphDB interface (SPARQL endpoint)
+      - 7200:7200  # Port
     networks: 
       - inswitch_network
     volumes:
-      - graphdb-data:/opt/graphdb/home  # Volume pour stocker les données GraphDB
-
+      - graphdb-data:/opt/graphdb/home
+  
 volumes:
   graphdb-data:
