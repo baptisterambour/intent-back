@@ -10,6 +10,8 @@ COPY ../app.ipynb /home/jovyan/
 
 COPY .devcontainer/requirements.txt .
 
+COPY templates/ templates/
+
 RUN pip install --cache-dir=/home/jovyan/temp -r requirements.txt
 
 EXPOSE 8888
