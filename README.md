@@ -41,10 +41,5 @@ The API interacts with a GraphDB instance for storing and querying RDF data.
 - GraphDB runs on: [http://localhost:7200](http://localhost:7200)
 - Default repository name: `intent-db`
 - SPARQL endpoint: `http://localhost:7200/repositories/intent-db`
-- Workbench (UI): [http://localhost:7200](http://localhost:7200)
 
-Make sure GraphDB is running before starting the API. You can use Docker to launch it, for example:
-
-```bash
-docker run -d --name graphdb -p 7200:7200 ontotext/graphdb:10.6.4
-```
+Make sure GraphDB is running before starting the API.
