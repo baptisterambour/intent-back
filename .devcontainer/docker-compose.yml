@@ -1,8 +1,8 @@
 version: '3.8'
 
 networks:
-  inswitch_network:
-    name: inswitch_network
+  intent_management_network:
+    name: intent_management_network
 
 services:
   flaskappi:
@@ -12,7 +12,7 @@ services:
     volumes:
       - ../..:/workspaces:cached
     networks: 
-      - inswitch_network
+      - intent_management_network
     command: sleep infinity
 
   graphdb:
@@ -21,7 +21,7 @@ services:
     ports:
       - 7200:7200  # Port
     networks: 
-      - inswitch_network
+      - intent_management_network
     volumes:
       - graphdb-data:/opt/graphdb/home
   
